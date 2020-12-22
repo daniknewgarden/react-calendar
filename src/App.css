@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+
+:root {
+  --color-accent: #943fa1;
+  --color-accent-secondary: #efe2f1;
+  --color-hover: #c465d3;
+  --color-text: #353535;
+}
+
+.App {
+  height: 100vh;
+  position: relative;
+}
+
+/* date picker styles */
+.App .CalendarDay__selected_span {
+  background: var(--color-accent-secondary);
+  color: var(--color-text);
+  border-radius: 0;
+}
+
+.App .CalendarDay__selected {
+  background: var(--color-accent);
+}
+
+.App .CalendarDay__selected:hover,
+.CalendarDay__selected:active {
+  background: var(--color-accent);
+  color: #000;
+}
+
+.App .CalendarDay__default {
+  border: none;
+}
+
+.CalendarDay__default {
+  color: var(--color-text);
+  border-radius: 8px;
+}
+
+.App .CalendarDay__default:hover {
+  border: none;
+  color: var(--color-text);
+  background: var(--color-hover);
+}
