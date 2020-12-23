@@ -38,9 +38,11 @@
 }
 
 :root {
+  --color-body: #ffffff;
   --color-accent: #943fa1;
   --color-accent-secondary: #efe2f1;
   --color-hover: #c465d3;
+  --color-border: #dbdbdb;
   --color-text-main: #353535;
   --color-text-subtitle: #ac9ca9;
 }
@@ -80,6 +82,35 @@
   border: none;
   color: var(--color-text-main);
   background: var(--color-hover);
+}
+
+.DateRangePicker {
+  .DateInput_fang {
+    display: none;
+  }
+
+  &_picker {
+    width: 100%;
+    border: none;
+    top: 0 !important;
+  }
+
+  .DayPicker__withBorder {
+    box-shadow: none;
+  }
+
+  .DayPicker_weekHeader {
+    top: 0;
+    padding-bottom: 5px !important;
+    background-color: var(--color-body);
+    border-bottom: 1px solid var(--color-border);
+
+    font-family: "Rubik", sans-serif;
+  }
+
+  .DayPicker_focusRegion {
+    padding-top: 25px;
+  }
 }
 
 // Text styles
