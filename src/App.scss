@@ -1,0 +1,113 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+:root {
+  --color-accent: #943fa1;
+  --color-accent-secondary: #efe2f1;
+  --color-hover: #c465d3;
+  --color-text-main: #353535;
+  --color-text-subtitle: #ac9ca9;
+}
+
+.App {
+  height: 100vh;
+  position: relative;
+}
+
+/* date picker styles */
+.App .CalendarDay__selected_span {
+  background: var(--color-accent-secondary);
+  color: var(--color-text-main);
+  border-radius: 0;
+}
+
+.App .CalendarDay__selected {
+  background: var(--color-accent);
+}
+
+.App .CalendarDay__selected:hover,
+.CalendarDay__selected:active {
+  background: var(--color-accent);
+  color: #000;
+}
+
+.App .CalendarDay__default {
+  border: none;
+}
+
+.CalendarDay__default {
+  color: var(--color-text-main);
+  border-radius: 10px;
+}
+
+.App .CalendarDay__default:hover {
+  border: none;
+  color: var(--color-text-main);
+  background: var(--color-hover);
+}
+
+// Text styles
+.controls {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 20px;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 18px;
+    text-align: left;
+    font-family: "Rubik", sans-serif, Helvetica, Arial;
+
+    .title {
+      margin: 0;
+
+      color: var(--color-text-main);
+    }
+
+    .subtitle {
+      margin: 0;
+      margin-top: 10px;
+
+      color: var(--color-text-subtitle);
+    }
+  }
+}

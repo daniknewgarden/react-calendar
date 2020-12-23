@@ -3,12 +3,13 @@
   border: none;
 
   padding: 7px 15px;
+  border-radius: 7px;
 
   font-size: 16px;
   color: var(--color-text);
-}
 
-.button.primary {
-  color: #fff;
-  background: var(--color-accent);
+  &.primary {
+    color: #fff;
+    background: var(--color-accent);
+  }
 }
