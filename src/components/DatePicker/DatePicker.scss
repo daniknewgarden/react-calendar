@@ -1,0 +1,118 @@
+// Styles for DatePicker component
+.date-picker {
+  //Description
+  // Text styles
+  .controls {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    &:focus {
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+
+      font-size: 18px;
+      text-align: left;
+      font-family: "Rubik", sans-serif, Helvetica, Arial;
+
+      .title {
+        margin: 0;
+
+        color: var(--color-text-main);
+      }
+
+      .subtitle {
+        margin: 0;
+        margin-top: 10px;
+
+        color: var(--color-text-subtitle);
+      }
+    }
+  }
+
+  //React-dates component
+  //Reset
+  .DateRangePicker {
+    //Default inputs
+    .DateInput {
+      display: none;
+    }
+
+    //Border remove
+    .DateRangePickerInput__withBorder {
+      border: none;
+    }
+
+    //Input arrow remove
+    .DateRangePickerInput_arrow {
+      display: none;
+    }
+
+    //Navigation buttons remove
+    .DayPickerNavigation_button__verticalDefault {
+      display: none;
+    }
+  }
+
+  //Custom styles
+  .DateRangePicker {
+    //Wrapper
+    &_picker {
+      height: 500px;
+      width: 100%;
+      border: none;
+      top: 0 !important;
+    }
+
+    //Content
+    .DayPicker__withBorder {
+      width: 100%;
+      box-shadow: none;
+    }
+
+    //Day names
+    .DayPicker_weekHeader {
+      top: 0;
+      padding-bottom: 5px !important;
+      background-color: var(--color-body);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    //Calendar
+    .DayPicker_focusRegion {
+      padding-top: 25px;
+    }
+
+    //Days
+    .CalendarDay__default {
+      border-radius: 10px;
+      border: none;
+
+      &:hover {
+        border: none;
+        color: var(--color-text-main);
+        background: var(--color-hover);
+      }
+    }
+
+    .CalendarDay__selected {
+      background: var(--color-accent);
+
+      &:focus,
+      &:active {
+        background: var(--color-accent);
+        color: #fff !important;
+      }
+    }
+
+    .CalendarDay__selected_span {
+      background: var(--color-accent-secondary);
+      color: var(--color-text-main);
+      border-radius: 0;
+    }
+  }
+}
