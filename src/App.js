@@ -40,6 +40,11 @@ function App() {
           label="Reset"
           onClick={() => setDate({ startDate: null, endDate: null })}
         />
+        <Button
+          label="Reset"
+          onClick={() => setDate({ startDate: null, endDate: null })}
+          primary={true}
+        />
       </div>
       <DateRangePicker
         startDate={date.startDate}
