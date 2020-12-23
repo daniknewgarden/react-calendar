@@ -8,7 +8,7 @@ import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import { Button } from "./components/Button/Button";
 
-import { VERTICAL_SCROLLABLE } from "react-dates/constants";
+import { VERTICAL_ORIENTATION } from "react-dates/constants";
 import moment from "moment";
 
 function App() {
@@ -22,15 +22,28 @@ function App() {
     setDate({ startDate, endDate });
   };
 
-  const resetDate = () => {};
+  const resetDate = () => {
+    setDate({ startDate: null, endDate: null });
+  };
 
-  useEffect(() => {
-    console.log(date);
-  }, [date]);
+  const focusStartDate = () => {
+    setFocusedInput("startDate");
+  };
+
+  const keyboardClick = (event) => {
+    if (event.keyCode === 13) {
+      focusStartDate();
+    }
+  };
 
   return (
     <div className="App">
-      <div className="controls">
+      <div
+        className="controls"
+        onClick={focusStartDate}
+        onKeyDown={keyboardClick}
+        tabIndex="0"
+      >
         <div className="text">
           <p className="title">Choose your date</p>
           <p className="subtitle">
@@ -38,10 +51,7 @@ function App() {
             {date.endDate ? date.endDate.format("D-MM-Y") : "End date"}
           </p>
         </div>
-        <Button
-          label="Reset"
-          onClick={() => setDate({ startDate: null, endDate: null })}
-        />
+        {date.startDate && <Button label="Reset" onClick={resetDate} />}
       </div>
       <DateRangePicker
         startDate={date.startDate}
@@ -51,15 +61,12 @@ function App() {
         onDatesChange={changeDates}
         focusedInput={focusedInput}
         onFocusChange={(focusedInput) => {
-          if (!focusedInput) return;
           setFocusedInput(focusedInput);
         }}
         block={true}
         small={true}
-        // orientation={VERTICAL_SCROLLABLE}
+        orientation={VERTICAL_ORIENTATION}
         keepOpenOnDateSelect={true}
-        initialVisibleMonth={() => moment().add(0, "months")}
-        enableScroll={true}
       />
     </div>
   );
