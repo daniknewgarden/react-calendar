@@ -7,9 +7,119 @@ import { VERTICAL_SCROLLABLE } from "react-dates/constants";
 //Components
 import { Button } from "../Button/Button";
 //Styles
-import "./DatePicker.scss";
+import styled from "styled-components";
 
-export const RangeDatePicker = () => {
+//Component
+const DatePickerWrapper = styled.div`
+  --color-body: #ffffff;
+  --color-accent: #943fa1;
+  --color-accent-secondary: #efe2f1;
+  --color-hover: #c465d3;
+  --color-border: #dbdbdb;
+  --color-text-main: #353535;
+  --color-text-subtitle: #80797e;
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    .text {
+      display: flex;
+      flex-direction: column;
+
+      font-size: 18px;
+      text-align: left;
+      font-family: "Rubik", sans-serif, Helvetica, Arial;
+
+      .title {
+        margin: 0;
+
+        color: var(--color-text-main);
+      }
+
+      .subtitle {
+        margin: 0;
+        margin-top: 10px;
+
+        color: var(--color-text-subtitle);
+      }
+    }
+  }
+
+  .DateRangePicker {
+    .DateInput {
+      display: none;
+    }
+
+    .DateRangePickerInput__withBorder {
+      border: none;
+    }
+
+    .DateRangePickerInput_arrow {
+      display: none;
+    }
+
+    .DayPickerNavigation_button__verticalDefault {
+      display: none;
+    }
+  }
+
+  .DateRangePicker {
+    &_picker {
+      height: 500px;
+      width: 100%;
+      border: none;
+      top: 0 !important;
+    }
+
+    .DayPicker__withBorder {
+      width: 100%;
+      box-shadow: none;
+    }
+
+    .DayPicker_weekHeader {
+      top: 0;
+      padding-bottom: 5px !important;
+      background-color: var(--color-body);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .DayPicker_focusRegion {
+      padding-top: 25px;
+    }
+
+    .CalendarDay__default {
+      border-radius: 10px;
+      border: none;
+
+      &:hover {
+        border: none;
+        color: var(--color-text-main);
+        background: var(--color-hover);
+      }
+    }
+
+    .CalendarDay__selected {
+      background: var(--color-accent);
+
+      &:focus,
+      &:active {
+        background: var(--color-accent);
+        color: #fff !important;
+      }
+    }
+
+    .CalendarDay__selected_span {
+      background: var(--color-accent-secondary);
+      color: var(--color-text-main);
+      border-radius: 0;
+    }
+  }
+`;
+
+export const RangeDatePickerStyled = () => {
   const [opened, setOpened] = useState(false);
   const [focusedInput, setFocusedInput] = useState(null);
   const [date, setDate] = useState({
@@ -56,7 +166,7 @@ export const RangeDatePicker = () => {
   };
 
   return (
-    <div className="date-picker">
+    <DatePickerWrapper>
       <div
         className="controls"
         onClick={toggleOpened}
@@ -64,7 +174,7 @@ export const RangeDatePicker = () => {
         tabIndex="0"
       >
         <div className="text">
-          <p className="title">Choose your date (scss)</p>
+          <p className="title">Choose your date (styled component)</p>
           <p className="subtitle">
             {date.startDate ? date.startDate.format("D-MM-Y") : "Start date"} -{" "}
             {date.endDate ? date.endDate.format("D-MM-Y") : "End date"}
@@ -87,6 +197,6 @@ export const RangeDatePicker = () => {
         orientation={VERTICAL_SCROLLABLE}
         numberOfMonths={6}
       />
-    </div>
+    </DatePickerWrapper>
   );
 };
